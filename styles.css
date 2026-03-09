@@ -168,6 +168,19 @@ section {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
+.image-figure {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-caption {
+    font-size: 0.78rem;
+    color: #999;
+    margin-top: 0.4rem;
+    text-align: right;
+    letter-spacing: 0.05em;
+}
+
 /* コンセプトセクション */
 .concept {
     text-align: center;
