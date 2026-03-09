@@ -218,6 +218,86 @@ section {
     background: #f9f7f4;
 }
 
+.shop-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.shop-detail-figure {
+    position: sticky;
+    top: 100px;
+}
+
+.shop-detail-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+
+.shop-detail-info h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.shop-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.shop-table tr {
+    border-bottom: 1px solid #e8e0d8;
+}
+
+.shop-table th {
+    width: 8em;
+    padding: 1rem 0.5rem 1rem 0;
+    color: #c8a882;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.shop-table td {
+    padding: 1rem 0;
+    color: #555;
+    vertical-align: top;
+}
+
+.shop-table td a {
+    color: #555;
+    text-decoration: none;
+}
+
+.shop-table td a:hover {
+    color: #c8a882;
+}
+
+.shop-table td small {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 0.3rem;
+}
+
+.shop-reserve-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+}
+
+/* 旧カードスタイル（使用しないが残す） */
 .shop-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -260,36 +340,67 @@ section {
 /* お知らせセクション */
 .news {
     padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .news-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0;
+    list-style: none;
+    border-top: 1px solid #e8e0d8;
 }
 
 .news-item {
     display: flex;
-    gap: 2rem;
-    padding: 2rem;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 2rem 1.5rem;
     background: white;
-    border-left: 3px solid #c8a882;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+    border-bottom: 1px solid #e8e0d8;
+    transition: background 0.25s, padding-left 0.25s;
+    cursor: default;
 }
 
 .news-item:hover {
-    transform: translateX(10px);
+    background: #fdf9f5;
+    padding-left: 2.5rem;
 }
 
 .news-date {
-    font-weight: bold;
+    font-size: 0.9rem;
+    font-weight: 600;
     color: #c8a882;
-    min-width: 120px;
+    letter-spacing: 0.05em;
+    min-width: 110px;
+    padding-top: 0.15rem;
+    flex-shrink: 0;
 }
 
-.news-content {
+.news-body {
     flex: 1;
+}
+
+.news-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+}
+
+.news-text {
+    font-size: 0.9rem;
+    color: #777;
+    line-height: 1.7;
+}
+
+.news-empty {
+    padding: 2rem;
+    color: #aaa;
+    font-size: 0.95rem;
+    text-align: center;
 }
 
 /* 予約ページ用スタイル */
@@ -452,10 +563,14 @@ footer {
 
     .about-content,
     .concept-grid,
-    .shop-grid,
+    .shop-detail,
     .footer-content,
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .shop-detail-figure {
+        position: static;
     }
 
     section {

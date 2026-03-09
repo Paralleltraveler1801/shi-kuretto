@@ -83,31 +83,47 @@
     <!-- 店舗セクション -->
     <section id="shops" class="shops">
         <h2 class="section-title">店舗のご案内</h2>
-        <p class="section-subtitle">Our Shops</p>
-        <div class="shop-grid">
-            <div class="shop-card">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600" alt="本店" class="shop-image">
-                <p class="image-caption">※画像はイメージです。</p>
-                <div class="shop-info">
-                    <h3>本店</h3>
-                    <p>伝統の味を守り続ける旗艦店</p>
-                </div>
-            </div>
-            <div class="shop-card">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600" alt="銀座店" class="shop-image">
-                <p class="image-caption">※画像はイメージです。</p>
-                <div class="shop-info">
-                    <h3>銀座店</h3>
-                    <p>都会の喧騒を忘れる上質な空間</p>
-                </div>
-            </div>
-            <div class="shop-card">
-                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600" alt="新宿店" class="shop-image">
-                <p class="image-caption">※画像はイメージです。</p>
-                <div class="shop-info">
-                    <h3>新宿店</h3>
-                    <p>アクセス抜群のモダンな店舗</p>
-                </div>
+        <p class="section-subtitle">Our Shop</p>
+        <div class="shop-detail">
+            <figure class="image-figure shop-detail-figure">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900" alt="鸨処 ひし田" class="shop-detail-image">
+                <figcaption class="image-caption">※画像はイメージです。</figcaption>
+            </figure>
+            <div class="shop-detail-info">
+                <h3>すし処　ひし田</h3>
+                <table class="shop-table">
+                    <tr>
+                        <th>住　　所</th>
+                        <td>札幌市豊平区福住1条2丁目8-21 キャッスル福住1F</td>
+                    </tr>
+                    <tr>
+                        <th>TEL / FAX</th>
+                        <td><a href="tel:0118270537">011-827-0537</a> / 011-827-0536</td>
+                    </tr>
+                    <tr>
+                        <th>営業時間</th>
+                        <td>17:00 〜 LAST</td>
+                    </tr>
+                    <tr>
+                        <th>定　休日</th>
+                        <td>毎週月曜日（祝日の場合翠火曜日）</td>
+                    </tr>
+                    <tr>
+                        <th>アクセス</th>
+                        <td>地下鉄東豊線「福住」駅より徒欹7分</td>
+                    </tr>
+                    <tr>
+                        <th>駐　車場</th>
+                        <td>3台</td>
+                    </tr>
+                    <tr>
+                        <th>席　　数</th>
+                        <td>カウンター 7席・小上がり 12席・座敷 6席・個室 6席<br>
+                            <small>※個室ご利用の場合は、別途800円（税別）いただきます。</small>
+                        </td>
+                    </tr>
+                </table>
+                <a href="reserve.html" target="_blank" class="reserve-btn shop-reserve-btn">ご予約はこちら</a>
             </div>
         </div>
     </section>
@@ -116,29 +132,7 @@
     <section id="news" class="news">
         <h2 class="section-title">お知らせ</h2>
         <p class="section-subtitle">News</p>
-        <div class="news-list">
-            <div class="news-item">
-                <div class="news-date">2026.03.01</div>
-                <div class="news-content">
-                    <strong>春の特別コース</strong><br>
-                    春の旬の食材を使用した特別コースの提供を開始いたしました。
-                </div>
-            </div>
-            <div class="news-item">
-                <div class="news-date">2026.02.15</div>
-                <div class="news-content">
-                    <strong>新店舗オープン</strong><br>
-                    名古屋栄店が3月15日にグランドオープンいたします。
-                </div>
-            </div>
-            <div class="news-item">
-                <div class="news-date">2026.02.01</div>
-                <div class="news-content">
-                    <strong>年末年始の営業について</strong><br>
-                    各店舗の年末年始営業スケジュールを更新いたしました。
-                </div>
-            </div>
-        </div>
+        <ul class="news-list" id="news-list"></ul>
     </section>
 
     <!-- フッター -->
@@ -147,5 +141,6 @@
             <p>© 2026 すし処ひし田. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
