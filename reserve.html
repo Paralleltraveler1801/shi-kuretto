@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ご予約 - シークレット</title>
+    <title>ご予約 - すし処ひし田</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- ヘッダー -->
     <header>
         <nav>
-            <div class="logo">シークレット</div>
+            <div class="logo">すし処ひし田</div>
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#concept">Concept</a></li>
                 <li><a href="index.html#shops">店舗</a></li>
                 <li><a href="index.html#news">お知らせ</a></li>
+                <li><a href="index.html" class="nav-reserve">ホーム</a></li>
             </ul>
-            <a href="index.html"><button class="reserve-btn">ホーム</button></a>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
@@ -45,28 +50,18 @@
                 <h3>お電話でのご予約・お問い合わせ</h3>
                 <div class="contact-grid">
                     <div class="contact-item">
-                        <h4>本店</h4>
-                        <p>TEL: 03-1234-5678<br>
-                           受付時間: 11:00 - 22:00<br>
-                           定休日: 水曜日</p>
-                    </div>
-                    <div class="contact-item">
-                        <h4>銀座店</h4>
-                        <p>TEL: 03-2345-6789<br>
-                           受付時間: 11:30 - 23:00<br>
-                           定休日: なし</p>
-                    </div>
-                    <div class="contact-item">
-                        <h4>新宿店</h4>
-                        <p>TEL: 03-3456-7890<br>
-                           受付時間: 11:00 - 23:00<br>
-                           定休日: なし</p>
+                        <h4>すし処　ひし田</h4>
+                        <p>TEL: <a href="tel:0118270537">011-827-0537</a><br>
+                           FAX: 011-827-0536<br>
+                           営業時間: 17:00 〜 LAST<br>
+                           定休日: 毎週月曜日（祝日の場合翠火曜日）</p>
                     </div>
                     <div class="contact-item">
                         <h4>ご予約について</h4>
-                        <p>・ご予約は当日の2時間前まで<br>
+                        <p>・ご予約は当日お電話にてお問い合わせください<br>
                            ・キャンセルは前日までにご連絡ください<br>
-                           ・個室のご予約も承ります</p>
+                           ・個室のご利用は別途800円（税別）<br>
+                           ・定指席：カウンター7席・小上がり12席・個室直5席</p>
                     </div>
                 </div>
             </div>
@@ -75,41 +70,11 @@
 
     <!-- フッター -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>シークレットについて</h4>
-                <ul>
-                    <li><a href="index.html#about">私たちのストーリー</a></li>
-                    <li><a href="index.html#concept">理念</a></li>
-                    <li><a href="#">会社情報</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>店舗情報</h4>
-                <ul>
-                    <li><a href="#">本店</a></li>
-                    <li><a href="#">銀座店</a></li>
-                    <li><a href="#">新宿店</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>採用情報</h4>
-                <ul>
-                    <li><a href="#">採用サイト</a></li>
-                    <li><a href="#">応募フォーム</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>その他</h4>
-                <ul>
-                    <li><a href="#">プライバシーポリシー</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
-                </ul>
-            </div>
-        </div>
+    
         <div class="footer-bottom">
-            <p>© 2026 シークレット. All rights reserved.</p>
+            <p>© 2026 すし処ひし田. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

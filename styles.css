@@ -30,6 +30,7 @@ nav {
     padding: 1.5rem 5%;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
 }
 
 .logo {
@@ -42,6 +43,9 @@ nav {
     display: flex;
     gap: 2rem;
     list-style: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links a {
@@ -181,36 +185,56 @@ section {
     letter-spacing: 0.05em;
 }
 
-/* コンセプトセクション */
-.concept {
+/* コンセプトセクション（未使用・削除済み） */
+
+/* 店内紹介セクション */
+.interior {
+    background: #f9f7f4;
+}
+
+.interior-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.interior-item {
     text-align: center;
 }
 
-.concept-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-top: 4rem;
-}
-
-.concept-item {
-    padding: 2rem;
+.interior-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
-.concept-item:hover {
-    transform: translateY(-10px);
+.interior-item:hover .interior-image {
+    transform: scale(1.03);
 }
 
-.concept-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.interior-label {
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
 }
 
-.concept-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
+.interior-note {
+    font-size: 0.78rem;
+    color: #999;
+    margin-top: 0.3rem;
+    line-height: 1.5;
+}
+
+.about-owner {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.1em;
+    text-align: right;
+    margin-top: 1rem;
 }
 
 /* 店舗セクション */
@@ -451,14 +475,17 @@ section {
 
 .form-container {
     background: white;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
 }
 
 .form-container iframe {
     width: 100%;
-    min-height: 1200px;
+    max-width: 700px;
+    height: 600px;
     border: none;
 }
 
@@ -547,10 +574,76 @@ footer {
     color: #888;
 }
 
+/* ハンバーガーボタン */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #333;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* レスポンシブ */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        transform: none;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+
+    .nav-links.open {
+        max-height: 400px;
+        padding: 0.5rem 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        border-bottom: 1px solid #f0ebe4;
+        font-size: 1rem;
     }
 
     .hero h1 {
@@ -562,7 +655,7 @@ footer {
     }
 
     .about-content,
-    .concept-grid,
+    .interior-grid,
     .shop-detail,
     .footer-content,
     .contact-grid {
