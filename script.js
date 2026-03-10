@@ -46,3 +46,78 @@ if (hamburger && navLinks) {
     });
 }
 
+const GAS_URL = "https://script.google.com/macros/s/AKfycby-G5Gh2tPQkcgsPnakXn4MyPQDIEfFE2Dtzb0M4mVvnsHiROSxY7yHbr2Mrn_R2Tbn/exec";
+let publicCalendarData = [];
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
+function renderPublicCalendar(data, year, month) {
+  const calendar = document.getElementById("calendar-grid");
+  if (!calendar) return;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const limit = new Date(today);
+  limit.setDate(today.getDate() + 30);
+
+  document.getElementById("month-label").textContent = `${year}年${month + 1}月`;
+
+  // 前月ボタン：今月より前は非活性
+  const now = new Date();
+  document.getElementById("prev-month").disabled =
+    (year === now.getFullYear() && month <= now.getMonth());
+
+  // 次月ボタン：2ヶ月先以上は非活性
+  document.getElementById("next-month").disabled =
+    (year > now.getFullYear() || month >= now.getMonth() + 1);
+
+  calendar.querySelectorAll(".day, .empty").forEach(el => el.remove());
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const adjust = (firstDay === 0) ? 6 : firstDay - 1;
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < adjust; i++) {
+    const empty = document.createElement("div");
+    empty.className = "day empty";
+    calendar.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const found = data.find(item => item.date.trim() === dateStr);
+    const status = found ? found.status : "";
+    const thisDate = new Date(year, month, d);
+    const isPast = thisDate <= today;
+    const isOver = thisDate > limit;
+
+    const div = document.createElement("div");
+    div.className = `day${(isPast || isOver) ? " past" : ""}`;
+    div.innerHTML = `
+      <div class="num">${d}</div>
+      <div class="status ${(isPast || isOver) ? "" : "status-" + status}">
+        ${(isPast || isOver) ? "-" : status}
+      </div>`;
+    calendar.appendChild(div);
+  }
+}
+
+// ボタンのイベント
+document.getElementById("prev-month")?.addEventListener("click", () => {
+  if (currentMonth === 0) { currentMonth = 11; currentYear--; }
+  else currentMonth--;
+  renderPublicCalendar(publicCalendarData, currentYear, currentMonth);
+});
+
+document.getElementById("next-month")?.addEventListener("click", () => {
+  if (currentMonth === 11) { currentMonth = 0; currentYear++; }
+  else currentMonth++;
+  renderPublicCalendar(publicCalendarData, currentYear, currentMonth);
+});
+
+fetch(GAS_URL)
+  .then(res => res.json())
+  .then(data => {
+    publicCalendarData = data;
+    renderPublicCalendar(data, currentYear, currentMonth);
+  });
