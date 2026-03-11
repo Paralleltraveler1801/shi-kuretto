@@ -237,3 +237,44 @@ nav {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #ddd;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tab-btn.active {
+  background: #333;
+  color: white;
+}
+
+.reservation-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.reservation-date {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 24px 0 8px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 4px;
+}
+
+.reservation-card p {
+  margin: 4px 0;
+  font-size: 14px;
+}

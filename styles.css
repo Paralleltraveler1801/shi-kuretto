@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -431,7 +435,6 @@ section {
 .reserve-container {
     min-height: 100vh;
     background: #f9f7f4;
-    padding-top: 100px;
 }
 
 .reserve-hero {
@@ -439,8 +442,10 @@ section {
                 url('images/reserve-hero.jpg') center/cover;
     height: 40vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     color: white;
     margin-top: 70px;
 }
@@ -451,10 +456,52 @@ section {
     letter-spacing: 0.2em;
 }
 
+/* 予約方法ナビゲーション */
+.reserve-method-section {
+    text-align: center;
+    padding: 2rem 5% 1rem;
+}
+
+.reserve-method-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin-bottom: 0.8rem;
+}
+
+.reserve-method-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.reserve-method-btn {
+    display: inline-block;
+    padding: 0.55rem 2rem;
+    border: 1px solid #555;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.reserve-method-btn:hover {
+    background: #333;
+    color: #fff;
+}
+
 .reserve-content {
     max-width: 1000px;
     margin: 0 auto;
     padding: 60px 5%;
+}
+
+/* スクロール対象セクションの固定ヘッダー分オフセット */
+#form-section,
+#phone-section {
+    scroll-margin-top: 90px;
 }
 
 .reserve-intro {
@@ -714,6 +761,12 @@ footer {
     margin: 0 auto;
 }
 
+/* スピナーオーバーレイの相対位置基準 */
+.calendar-section-inner {
+    position: relative;
+    min-height: 500px;
+}
+
 /* 月ラベル */
 .month-label {
     text-align: center;
@@ -849,10 +902,15 @@ footer {
 }
 
 #calendar-loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+    background: rgba(249, 247, 244, 0.88);
+    z-index: 10;
+    border-radius: 8px;
 }
 
 .spinner {
