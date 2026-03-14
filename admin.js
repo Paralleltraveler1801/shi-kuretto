@@ -254,6 +254,7 @@ async function loadReservations() {
 
     if (text === "OK") {
         alert("予約をキャンセルしました。");
+        loadReservations();
     }
     }
 
