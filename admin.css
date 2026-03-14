@@ -363,3 +363,23 @@ nav {
         font-size: 13px;
     }
 }
+
+.cancel-btn {
+  margin-top: 8px;
+  padding: 6px 16px;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cancel-btn:hover {
+  background: #c0392b;
+}
+
+.cancel-btn:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}

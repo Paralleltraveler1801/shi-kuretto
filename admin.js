@@ -211,19 +211,52 @@ async function loadReservations() {
         grouped[date].forEach(r => {
         const card = document.createElement("div");
         card.className = "reservation-card";
+
+        // onclickは使わない！
         card.innerHTML = `
             <p>👤 <strong>${r["お名前"]}</strong> 様</p>
             <p>🕐 ${formatTime(r["来店時刻"])}　👥 ${r["来店人数"]}</p>
             <p>🍣 ${r["ご利用プラン"]}</p>
             <p>📞 ${r["電話番号"]}</p>
             <p>⚠️ アレルギー：${r["食品アレルギーの確認"] === "あり"
-                ? `あり（${r["アレルギー製品の選択"] || "未選択"}）`
-                : "なし"}
+            ? `あり（${r["アレルギー製品の選択"] || "未選択"}）`
+            : "なし"}
             </p>
-            `;
+        `;
 
+        // ボタンはJSで作ってaddEventListenerをつける
+        const cancelBtn = document.createElement("button");
+        cancelBtn.className = "cancel-btn";
+        cancelBtn.textContent = "キャンセル";
+        cancelBtn.addEventListener("click", () => cancelReservation(r["タイムスタンプ"], cancelBtn));
+        card.appendChild(cancelBtn);
 
         container.appendChild(card);
         });
+
+
+        });
+        async function cancelReservation(timestamp, btn) {
+    if (!confirm("この予約をキャンセル（削除）しますか？")) return;
+
+    console.log("送信するタイムスタンプ:", timestamp); // ← 追加
+
+    btn.disabled = true;
+    btn.textContent = "処理中...";
+
+    const res = await fetch(GAS_URL, {
+        method: "POST",
+        body: JSON.stringify({ action: "cancelReservation", timestamp: timestamp })
     });
+
+    const text = await res.text();
+    console.log("GASの返答:", text); // ← 追加
+
+    if (text === "OK") {
+        alert("予約をキャンセルしました。");
+    }
+    }
+
+
+
 }
