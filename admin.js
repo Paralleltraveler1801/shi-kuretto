@@ -232,31 +232,114 @@ async function loadReservations() {
         card.appendChild(cancelBtn);
 
         container.appendChild(card);
+        const editBtn = document.createElement("button");
+        editBtn.className = "edit-btn";
+        editBtn.textContent = "編集";
+        editBtn.addEventListener("click", () => openEditModal(r));
+        card.appendChild(editBtn);
         });
 
 
         });
         async function cancelReservation(timestamp, btn) {
-    if (!confirm("この予約をキャンセル（削除）しますか？")) return;
+        if (!confirm("この予約をキャンセル（削除）しますか？")) return;
 
-    console.log("送信するタイムスタンプ:", timestamp); // ← 追加
+        console.log("送信するタイムスタンプ:", timestamp); // ← 追加
 
-    btn.disabled = true;
-    btn.textContent = "処理中...";
+        btn.disabled = true;
+        btn.textContent = "処理中...";
 
-    const res = await fetch(GAS_URL, {
-        method: "POST",
-        body: JSON.stringify({ action: "cancelReservation", timestamp: timestamp })
-    });
+        const res = await fetch(GAS_URL, {
+            method: "POST",
+            body: JSON.stringify({ action: "cancelReservation", timestamp: timestamp })
+        });
 
-    const text = await res.text();
-    console.log("GASの返答:", text); // ← 追加
+        const text = await res.text();
+        console.log("GASの返答:", text); // ← 追加
 
-    if (text === "OK") {
-        alert("予約をキャンセルしました。");
-        loadReservations();
-    }
-    }
+        if (text === "OK") {
+            alert("予約をキャンセルしました。");
+            loadReservations();
+        }
+        }
+        let editingTimestamp = null;
+
+        function parseJapaneseDate(str) {
+        const m = String(str).match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+        if (!m) return "";
+        return `${m[1]}-${String(m[2]).padStart(2,'0')}-${String(m[3]).padStart(2,'0')}`;
+        }
+
+        function openEditModal(r) {
+        editingTimestamp = r["タイムスタンプ"];
+        const s = "width:100%; padding:8px; margin-top:4px; background:#222; color:#fff; border:1px solid #555; border-radius:6px;";
+        document.getElementById("edit-fields").innerHTML = `
+            <label style="display:block;margin-bottom:10px;color:#ddd;">お名前<br>
+            <input id="e-name" type="text" value="${r["お名前"]||""}" style="${s}"></label>
+            <label style="display:block;margin-bottom:10px;color:#ddd;">電話番号<br>
+            <input id="e-tel" type="tel" value="${r["電話番号"]||""}" style="${s}"></label>
+            <label style="display:block;margin-bottom:10px;color:#ddd;">来店日<br>
+            <input id="e-date" type="date" value="${parseJapaneseDate(r["来店日時"])}" style="${s}"></label>
+            <label style="display:block;margin-bottom:10px;color:#ddd;">来店時刻<br>
+            <input id="e-time" type="time" value="${r["来店時刻"]||""}" style="${s}"></label>
+            <label style="display:block;margin-bottom:10px;color:#ddd;">来店人数<br>
+            <input id="e-count" type="text" value="${r["来店人数"]||""}" style="${s}"></label>
+            <label style="display:block;margin-bottom:10px;color:#ddd;">ご利用プラン<br>
+            <input id="e-plan" type="text" value="${r["ご利用プラン"]||""}" style="${s}"></label>
+            <label style="display:block;margin-bottom:10px;color:#ddd;">アレルギー<br>
+            <select id="e-allergy" style="${s}">
+                <option value="なし" ${r["食品アレルギーの確認"]!=="あり"?"selected":""}>なし</option>
+                <option value="あり" ${r["食品アレルギーの確認"]==="あり"?"selected":""}>あり</option>
+            </select></label>
+            <label style="display:block;margin-bottom:10px;color:#ddd;">アレルギー品目<br>
+            <input id="e-allergy-items" type="text" value="${r["アレルギー製品の選択"]||""}" style="${s}"></label>
+        `;
+        document.getElementById("edit-modal").style.display = "flex";
+        document.getElementById("edit-save-btn").onclick = saveEdit;
+        document.getElementById("edit-close-btn").onclick = closeEditModal;
+        }
+
+        function closeEditModal() {
+        document.getElementById("edit-modal").style.display = "none";
+        editingTimestamp = null;
+        }
+
+        async function saveEdit() {
+        const dateVal = document.getElementById("e-date").value;
+        const d = new Date(dateVal + "T00:00:00+09:00");
+        const formattedDate = `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+
+        const payload = {
+            action: "updateReservation",
+            timestamp: editingTimestamp,
+            "お名前": document.getElementById("e-name").value,
+            "電話番号": document.getElementById("e-tel").value,
+            "来店日時": formattedDate,
+            "来店時刻": document.getElementById("e-time").value,
+            "来店人数": document.getElementById("e-count").value,
+            "ご利用プラン": document.getElementById("e-plan").value,
+            "食品アレルギーの確認": document.getElementById("e-allergy").value,
+            "アレルギー製品の選択": document.getElementById("e-allergy-items").value,
+        };
+
+        const btn = document.querySelector("#edit-modal button");
+        btn.disabled = true; btn.textContent = "保存中...";
+        try {
+            const res = await fetch(GAS_URL, { method: "POST", body: JSON.stringify(payload) });
+            const text = await res.text();
+            if (text.trim() === "OK") {
+            alert("更新しました！");
+            closeEditModal();
+            loadReservations();
+            } else {
+            alert("更新失敗: " + text);
+            }
+        } catch(e) {
+            alert("通信エラーが発生しました");
+        } finally {
+            btn.disabled = false; btn.textContent = "保存";
+        }
+        }
 
 
 

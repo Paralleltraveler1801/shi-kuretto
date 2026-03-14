@@ -383,3 +383,36 @@ nav {
   background: #aaa;
   cursor: not-allowed;
 }
+
+.cancel-btn,
+.edit-btn {
+  margin-top: 12px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cancel-btn {
+  background: transparent;
+  color: #e05c5c;
+  border: 1px solid #e05c5c;
+  margin-right: 8px;
+}
+
+.cancel-btn:hover {
+  background: #e05c5c;
+  color: #fff;
+}
+
+.edit-btn {
+  background: transparent;
+  color: #c8a882;
+  border: 1px solid #c8a882;
+}
+
+.edit-btn:hover {
+  background: #c8a882;
+  color: #111;
+}
