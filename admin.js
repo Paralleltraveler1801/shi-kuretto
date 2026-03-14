@@ -265,9 +265,23 @@ async function loadReservations() {
         let editingTimestamp = null;
 
         function parseJapaneseDate(str) {
-        const m = String(str).match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
-        if (!m) return "";
-        return `${m[1]}-${String(m[2]).padStart(2,'0')}-${String(m[3]).padStart(2,'0')}`;
+        if (!str) return "";
+        // yyyy年M月d日
+        const m1 = String(str).match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+        if (m1) return `${m1[1]}-${String(m1[2]).padStart(2,'0')}-${String(m1[3]).padStart(2,'0')}`;
+        // yyyy/MM/dd
+        const m2 = String(str).match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+        if (m2) return `${m2[1]}-${String(m2[2]).padStart(2,'0')}-${String(m2[3]).padStart(2,'0')}`;
+        // ISO形式
+        const m3 = String(str).match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (m3) return `${m3[1]}-${m3[2]}-${m3[3]}`;
+        // Dateオブジェクト変換
+        const d = new Date(str);
+        if (!isNaN(d.getTime())) {
+            const jst = new Date(d.getTime() + 9 * 60 * 60 * 1000);
+            return `${jst.getUTCFullYear()}-${String(jst.getUTCMonth()+1).padStart(2,'0')}-${String(jst.getUTCDate()).padStart(2,'0')}`;
+        }
+        return "";
         }
 
         function openEditModal(r) {
