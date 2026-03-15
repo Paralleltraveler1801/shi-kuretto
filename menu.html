@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お品書き｜鮨処ひし田</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <nav>
+        <div class="logo">鮨処ひし田</div>
+        <ul class="nav-links">
+          <li><a href="index.html#about">お店紹介</a></li>
+          <li><a href="menu.html" class="active">メニュー</a></li>
+          <li><a href="index.html#interior">店内紹介</a></li>
+          <li><a href="index.html#news">お知らせ</a></li>
+          <li><a href="index.html#shops">アクセス</a></li>
+          <li><a href="reserve.html" class="nav-reserve">ご予約</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="menu-main">
+    <div class="menu-hero">
+      <h1 class="menu-title">お品書き</h1>
+      <p class="menu-subtitle">季節ごとの旬の魚介を中心に、北海道はもとより全国各地から鮮度抜群のネタを集めました。</p>
+    </div>
+
+    <!-- タブナビ -->
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="switchMenuTab('nigiri')">握り寿司</button>
+      <button class="menu-tab" onclick="switchMenuTab('moriawase')">盛り合わせ・丼</button>
+      <button class="menu-tab" onclick="switchMenuTab('sashimi')">お刺身</button>
+      <button class="menu-tab" onclick="switchMenuTab('ippin')">逸品料理</button>
+      <button class="menu-tab" onclick="switchMenuTab('drink')">お飲み物</button>
+    </div>
+
+    <!-- 握り寿司 -->
+    <section id="tab-nigiri" class="menu-section">
+      <h2 class="section-heading">握り寿司</h2>
+
+      <!-- セットメニュー -->
+      <div class="menu-category-label">セットメニュー</div>
+      <div class="menu-grid">
+
+        <div class="menu-card has-photo">
+          <img src="images/nigiri-omakase.png" alt="おまかせ握り" class="menu-img" onclick="openImgModal('images/nigiri-omakase.png','おまかせ握り')">
+          <div class="menu-card-body">
+            <div class="menu-name">おまかせ握り</div>
+            <div class="menu-desc">大トロ、あわび、大ボタン海老などの贅沢なネタに、旬の握り2貫を加えました。</div>
+            <div class="menu-price">5,000円<span>（税込）</span></div>
+          </div>
+        </div>
+
+        <div class="menu-card has-photo">
+          <img src="images/nigiri-gokujo.png" alt="極上握り" class="menu-img" onclick="openImgModal('images/nigiri-gokujo.png','極上握り')">
+          <div class="menu-card-body">
+            <div class="menu-name">極上握り</div>
+            <div class="menu-desc">大トロ、ウニ、アワビなど、選りすぐりのネタをご用意した全12貫。</div>
+            <div class="menu-price">4,500円<span>（税込）</span></div>
+          </div>
+        </div>
+
+        <div class="menu-card has-photo">
+          <img src="images/nigiri-tokujo.png" alt="特上握り" class="menu-img" onclick="openImgModal('images/nigiri-tokujo.png','特上握り')">
+          <div class="menu-card-body">
+            <div class="menu-name">特上握り</div>
+            <div class="menu-price">4,200円<span>（税込）</span></div>
+          </div>
+        </div>
+
+        <div class="menu-card has-photo">
+          <img src="images/nigiri-jo.png" alt="上握り" class="menu-img" onclick="openImgModal('images/nigiri-jo.png','上握り')">
+          <div class="menu-card-body">
+            <div class="menu-name">上握り</div>
+            <div class="menu-price">3,800円<span>（税込）</span></div>
+          </div>
+        </div>
+
+        <div class="menu-card has-photo">
+          <img src="images/nigiri-ajisai.png" alt="紫陽花握り" class="menu-img" onclick="openImgModal('images/nigiri-ajisai.png','紫陽花握り')">
+          <div class="menu-card-body">
+            <div class="menu-name">紫陽花握り</div>
+            <div class="menu-price">3,200円<span>（税込）</span></div>
+          </div>
+        </div>
+
+        <div class="menu-card has-photo">
+          <img src="images/nigiri-hana.png" alt="花握り" class="menu-img" onclick="openImgModal('images/nigiri-hana.png','花握り')">
+          <div class="menu-card-body">
+            <div class="menu-name">花握り</div>
+            <div class="menu-price">3,200円<span>（税込）</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 単品 -->
+      <div class="menu-category-label" style="margin-top:48px;">単品握り <small>※1個のお値段・入荷のない場合はご容赦願います</small></div>
+      <div class="menu-list">
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-otoro.png" alt="大トロ" class="list-img" onclick="openImgModal('images/neta-otoro.png','大トロ')">
+          <span class="list-name">大トロ</span>
+          <span class="list-price">880円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-botan.png" alt="大ぼたんエビ" class="list-img" onclick="openImgModal('images/neta-botan.png','大ぼたんエビ')">
+          <span class="list-name">大ぼたんエビ</span>
+          <span class="list-price">880円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-awabi.png" alt="活あわび" class="list-img" onclick="openImgModal('images/neta-awabi.png','活あわび')">
+          <span class="list-name">活あわび</span>
+          <span class="list-price">880円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-uni.png" alt="うに" class="list-img" onclick="openImgModal('images/neta-uni.png','うに')">
+          <span class="list-name">うに</span>
+          <span class="list-price">880円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-chutoro.png" alt="中トロ" class="list-img" onclick="openImgModal('images/neta-chutoro.png','中トロ')">
+          <span class="list-name">中トロ</span>
+          <span class="list-price">660円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-anago.png" alt="穴子" class="list-img" onclick="openImgModal('images/neta-anago.png','穴子')">
+          <span class="list-name">穴子</span>
+          <span class="list-price">660円</span>
+        </div>
+        <div class="menu-list-item"><span class="list-name">平目</span><span class="list-price">550円</span></div>
+        <div class="menu-list-item"><span class="list-name">こはだ</span><span class="list-price">550円</span></div>
+        <div class="menu-list-item"><span class="list-name">サバ</span><span class="list-price">550円</span></div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-tsubu.png" alt="つぶ" class="list-img" onclick="openImgModal('images/neta-tsubu.png','つぶ')">
+          <span class="list-name">つぶ</span>
+          <span class="list-price">550円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-hotate.png" alt="活ほたて" class="list-img" onclick="openImgModal('images/neta-hotate.png','活ほたて')">
+          <span class="list-name">活ほたて</span>
+          <span class="list-price">440円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-hokki.png" alt="活ほっき" class="list-img" onclick="openImgModal('images/neta-hokki.png','活ほっき')">
+          <span class="list-name">活ほっき</span>
+          <span class="list-price">440円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-maguro.png" alt="マグロ赤身" class="list-img" onclick="openImgModal('images/neta-maguro.png','マグロ赤身')">
+          <span class="list-name">マグロ赤身</span>
+          <span class="list-price">440円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-ikura.png" alt="いくら" class="list-img" onclick="openImgModal('images/neta-ikura.png','いくら')">
+          <span class="list-name">いくら</span>
+          <span class="list-price">440円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-zuwaigani.png" alt="ずわいがに" class="list-img" onclick="openImgModal('images/neta-zuwaigani.png','ずわいがに')">
+          <span class="list-name">ずわいがに</span>
+          <span class="list-price">440円</span>
+        </div>
+        <div class="menu-list-item"><span class="list-name">中ぼたん</span><span class="list-price">440円</span></div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-tamago.png" alt="大たまご" class="list-img" onclick="openImgModal('images/neta-tamago.png','大たまご')">
+          <span class="list-name">大たまご</span>
+          <span class="list-price">330円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-salmon.png" alt="サーモン" class="list-img" onclick="openImgModal('images/neta-salmon.png','サーモン')">
+          <span class="list-name">サーモン</span>
+          <span class="list-price">330円</span>
+        </div>
+        <div class="menu-list-item"><span class="list-name">甘えび</span><span class="list-price">330円</span></div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-tako.png" alt="たこ" class="list-img" onclick="openImgModal('images/neta-tako.png','たこ')">
+          <span class="list-name">たこ</span>
+          <span class="list-price">220円</span>
+        </div>
+        <div class="menu-list-item has-photo">
+          <img src="images/neta-ika.png" alt="いか" class="list-img" onclick="openImgModal('images/neta-ika.png','いか')">
+          <span class="list-name">いか</span>
+          <span class="list-price">220円</span>
+        </div>
+        <div class="menu-list-item"><span class="list-name">とびっこ</span><span class="list-price">220円</span></div>
+      </div>
+    </section>
+
+    <!-- 盛り合わせ・丼 -->
+    <section id="tab-moriawase" class="menu-section" style="display:none;">
+      <h2 class="section-heading">お寿司盛り合わせ・ちらし寿司・丼ぶり物</h2>
+      <p class="menu-coming">準備中</p>
+    </section>
+
+    <!-- お刺身 -->
+    <section id="tab-sashimi" class="menu-section" style="display:none;">
+      <h2 class="section-heading">お刺身</h2>
+      <p class="menu-coming">準備中</p>
+    </section>
+
+    <!-- 逸品料理 -->
+    <section id="tab-ippin" class="menu-section" style="display:none;">
+      <h2 class="section-heading">逸品料理</h2>
+      <p class="menu-coming">準備中</p>
+    </section>
+
+    <!-- お飲み物 -->
+    <section id="tab-drink" class="menu-section" style="display:none;">
+      <h2 class="section-heading">お飲み物</h2>
+      <p class="menu-coming">準備中</p>
+    </section>
+
+  </main>
+
+  <!-- 画像モーダル -->
+  <div id="img-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9998;" onclick="closeImgModal()"></div>
+  <div id="img-modal" style="display:none; position:fixed; inset:0; z-index:9999; display:none; justify-content:center; align-items:center; pointer-events:none;">
+    <div style="pointer-events:all; text-align:center; max-width:90vw; max-height:90vh;">
+      <img id="img-modal-img" src="" alt="" style="max-width:90vw; max-height:75vh; border-radius:10px; object-fit:contain;">
+      <p id="img-modal-caption" style="color:#c8a882; margin-top:12px; font-size:1.1rem;"></p>
+      <button onclick="closeImgModal()" style="margin-top:12px; background:#333; color:#fff; border:none; padding:8px 24px; border-radius:6px; cursor:pointer; font-size:0.95rem;">閉じる</button>
+    </div>
+  </div>
+
+  <footer class="footer-bottom">
+    <p>© 2026 鮨処ひし田. All rights reserved.</p>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>
