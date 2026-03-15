@@ -284,6 +284,23 @@ async function loadReservations() {
         return "";
         }
 
+        function parseTime(val) {
+        if (!val) return "";
+        // すでに HH:mm 形式ならそのまま
+        if (/^\d{2}:\d{2}$/.test(val)) return val;
+        // ISO・Date文字列の場合
+        const d = new Date(val);
+        if (!isNaN(d.getTime())) {
+            const jst = new Date(d.getTime() + 9 * 60 * 60 * 1000);
+            return `${String(jst.getUTCHours()).padStart(2,'0')}:${String(jst.getUTCMinutes()).padStart(2,'0')}`;
+        }
+        // "19時01分" 形式の場合
+        const m = val.match(/(\d{1,2})時(\d{2})分/);
+        if (m) return `${String(m[1]).padStart(2,'0')}:${m[2]}`;
+        return val;
+        }
+
+
         function openEditModal(r) {
         editingTimestamp = r["タイムスタンプ"];
 
@@ -322,7 +339,7 @@ async function loadReservations() {
             <input id="e-date" type="date" value="${parseJapaneseDate(r["来店日時"])}" style="${s}"></label>
 
             <label style="display:block;margin-bottom:10px;color:#ddd;">来店時刻<br>
-            <input id="e-time" type="time" value="${r["来店時刻"]||""}" style="${s}"></label>
+            <input id="e-time" type="time" value="${parseTime(r["来店時刻"])}" style="${s}"></label>
 
             <label style="display:block;margin-bottom:10px;color:#ddd;">来店人数<br>
             <input id="e-count" type="text" value="${r["来店人数"]||""}" style="${s}"></label>
