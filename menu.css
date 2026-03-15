@@ -195,6 +195,23 @@
   font-size: 0.95rem;
 }
 
+.menu-bottom-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.menu-home-back {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+
+.menu-home-back:hover {
+  color: #fff;
+}
+
 /* スマホ */
 @media (max-width: 600px) {
   .menu-tabs {
@@ -223,5 +240,9 @@
   .list-img {
     width: 36px;
     height: 36px;
+  }
+
+  .menu-bottom-action {
+    margin-top: 48px;
   }
 }
