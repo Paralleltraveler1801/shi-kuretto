@@ -302,6 +302,8 @@ async function loadReservations() {
 
 
         function openEditModal(r) {
+        document.getElementById("edit-modal-overlay").style.display = "block";
+        document.getElementById("edit-modal").style.display = "block";
         editingTimestamp = r["タイムスタンプ"];
 
         const s = "width:100%; padding:8px; margin-top:4px; background:#222; color:#fff; border:1px solid #555; border-radius:6px;";
@@ -381,6 +383,7 @@ async function loadReservations() {
 
 
         function closeEditModal() {
+        document.getElementById("edit-modal-overlay").style.display = "none";
         document.getElementById("edit-modal").style.display = "none";
         editingTimestamp = null;
         }
