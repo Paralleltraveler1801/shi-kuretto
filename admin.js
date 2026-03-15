@@ -458,3 +458,5 @@ async function loadReservations() {
 
 
 }
+
+window.openEditModal = openEditModal;
