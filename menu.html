@@ -44,11 +44,59 @@
     <h2 class="section-heading">握り寿司</h2>
 
     <div class="menu-split">
-      <div>
-        <img src="images/nigiri/omakase.png" alt="おまかせ握り" class="menu-split-img"
-            onclick="openImgModal('images/nigiri-omakase.png','おまかせ握り')">
-        <p class="menu-split-caption">おまかせ握り<br>大トロ、あわび、大ボタン海老などの贅沢なネタに、旬の握り2貫を加えました。</p>
+      <div class="menu-carousel">
+        <div class="menu-carousel-inner">
+          <button class="menu-carousel-btn prev">&#8592;</button>
+          <button class="menu-carousel-btn next">&#8594;</button>
+
+          <!-- ★ trackでスライドを包む -->
+          <div class="menu-carousel-track">
+
+            <div class="menu-carousel-slide"
+                onclick="openImgModal('images/nigiri/omakase.png','おまかせ握り')">
+              <img src="images/nigiri/omakase.png" alt="おまかせ握り">
+              <div class="menu-carousel-caption">
+                <div class="menu-carousel-name">おまかせ握り</div>
+                <div class="menu-carousel-desc">大トロ、あわび、大ボタン海老などの贅沢なネタに、旬の握り2貫を加えました。</div>
+                <div class="menu-carousel-price">5,000円（税込）</div>
+              </div>
+            </div>
+
+            <div class="menu-carousel-slide"
+                onclick="openImgModal('images/nigiri/gokujo.png','極上握り')">
+              <img src="images/nigiri/gokujo.png" alt="極上握り">
+              <div class="menu-carousel-caption">
+                <div class="menu-carousel-name">極上握り</div>
+                <div class="menu-carousel-desc">大トロ、ウニ、アワビなど、選りすぐりのネタをご用意した全12貫。</div>
+                <div class="menu-carousel-price">4,500円（税込）</div>
+              </div>
+            </div>
+
+            <div class="menu-carousel-slide"
+                onclick="openImgModal('images/nigiri/tokujo.png','特上握り')">
+              <img src="images/nigiri/tokujo.png" alt="特上握り">
+              <div class="menu-carousel-caption">
+                <div class="menu-carousel-name">特上握り</div>
+                <div class="menu-carousel-price">4,200円（税込）</div>
+              </div>
+            </div>
+
+            <div class="menu-carousel-slide"
+                onclick="openImgModal('images/nigiri/jo.png','上握り')">
+              <img src="images/nigiri/jo.png" alt="上握り">
+              <div class="menu-carousel-caption">
+                <div class="menu-carousel-name">上握り</div>
+                <div class="menu-carousel-price">3,800円（税込）</div>
+              </div>
+            </div>
+
+          </div><!-- /.menu-carousel-track -->
+        </div>
+
+        <div class="menu-carousel-dots"></div>
       </div>
+
+
       <div class="menu-split-right">
         <div class="menu-category-label">セットメニュー</div>
         <div class="menu-row"><span class="menu-row-name">おまかせ握り</span><span class="menu-row-price">5,000円</span></div>
@@ -98,11 +146,44 @@
     <p style="color:#666; font-size:0.88rem; margin-bottom:24px;">寿司盛り合わせは、2人前より各種ご用意。宴会や会合など、大人数でのお集まりにも最適です。</p>
 
     <div class="menu-split">
-      <div>
-        <img src="images/moriawase/mori-ran.png" alt="蘭" class="menu-split-img"
-            onclick="openImgModal('images/moriawase/mori-ran.png','蘭（らん）')">
-        <p class="menu-split-caption">蘭（らん）<br>大トロ、赤身、ウニ、イクラなど当店人気のネタを集めた握りに、旬の刺身を盛り合わせました。</p>
+      <div class="menu-carousel">
+  <div class="menu-carousel-inner">
+    <button class="menu-carousel-btn prev">&#8592;</button>
+    <button class="menu-carousel-btn next">&#8594;</button>
+    <div class="menu-carousel-track">
+
+      <div class="menu-carousel-slide" onclick="openImgModal('images/moriawase/mori-ran.png','蘭（らん）')">
+        <img src="images/moriawase/mori-ran.png" alt="蘭">
+        <div class="menu-carousel-caption">
+          <div class="menu-carousel-name">蘭（らん）</div>
+          <div class="menu-carousel-desc">大トロ、赤身、ウニ、イクラなど当店人気のネタを集めた握りに、旬の刺身を盛り合わせました。</div>
+          <div class="menu-carousel-price">19,500円（税込）</div>
+        </div>
       </div>
+
+      <div class="menu-carousel-slide" onclick="openImgModal('images/moriawase/mori-ichyo.png','銀杏（いちょう）')">
+        <img src="images/moriawase/mori-ichyo.png" alt="銀杏">
+        <div class="menu-carousel-caption">
+          <div class="menu-carousel-name">銀杏（いちょう）</div>
+          <div class="menu-carousel-desc">2人前 盛り合わせ</div>
+          <div class="menu-carousel-price">4,800円（税込）</div>
+        </div>
+      </div>
+
+      <div class="menu-carousel-slide" onclick="openImgModal('images/moriawase/chirashi-gokujo.png','極上ちらし')">
+        <img src="images/moriawase/chirashi-gokujo.png" alt="極上ちらし">
+        <div class="menu-carousel-caption">
+          <div class="menu-carousel-name">極上ちらし</div>
+          <div class="menu-carousel-desc">鮮度にこだわった豊富なネタの数々を、豪快に盛り付けました。</div>
+          <div class="menu-carousel-price">4,500円（税込）</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="menu-carousel-dots"></div>
+</div>
+
       <div class="menu-split-right">
         <div class="menu-category-label">2人前 盛り合わせ</div>
         <div class="menu-row"><span class="menu-row-name">木蓮（もくれん）</span><span class="menu-row-price">3,600円</span></div>
@@ -141,11 +222,35 @@
     <h2 class="section-heading">お刺身</h2>
 
     <div class="menu-split">
-      <div>
-        <img src="images/osashimi/sashimi-mori1.png" alt="刺身盛り合わせ" class="menu-split-img"
-            onclick="openImgModal('images/osashimi/sashimi-mori1.png','刺身盛り合わせ')">
-        <p class="menu-split-caption">新鮮・獲れたてのネタを使った華やかなお刺身盛り合わせのほか、各種単品もご用意しております。</p>
+      <div class="menu-carousel">
+      <div class="menu-carousel-inner">
+        <button class="menu-carousel-btn prev">&#8592;</button>
+        <button class="menu-carousel-btn next">&#8594;</button>
+        <div class="menu-carousel-track">
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/osashimi/sashimi-mori1.png','刺身盛り合わせ')">
+            <img src="images/osashimi/sashimi-mori1.png" alt="刺身盛り合わせ">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">刺身盛り合わせ 8点盛</div>
+              <div class="menu-carousel-desc">その時期一番美味しいものだけを集めた、贅沢な一皿。5〜6人前の大皿になりますので、ご家族やグループでどうぞ。</div>
+              <div class="menu-carousel-price">2,750円〜（税込）</div>
+            </div>
+          </div>
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/osashimi/sashimi-mori2.png','刺身盛り合わせ')">
+            <img src="images/osashimi/sashimi-mori2.png" alt="刺身盛り合わせ">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">刺身盛り合わせ 5点盛</div>
+              <div class="menu-carousel-desc">その日仕入れた新鮮な魚介をご用意。お好きなネタ等のリクエストもお気軽にお申し付けください。</div>
+              <div class="menu-carousel-price">1,980円〜（税込）</div>
+            </div>
+          </div>
+
+        </div>
       </div>
+      <div class="menu-carousel-dots"></div>
+    </div>
+
       <div class="menu-split-right">
         <div class="menu-category-label">盛り合わせ</div>
         <div class="menu-row">
@@ -172,11 +277,66 @@
     <h2 class="section-heading">逸品料理</h2>
 
     <div class="menu-split">
-      <div>
-        <img src="images/ippinmono/tempura-mori.png" alt="天婦羅盛り合わせ" class="menu-split-img"
-            onclick="openImgModal('images/ippinmono/tempura-mori.png','天婦羅盛り合わせ')">
-        <p class="menu-split-caption">えび天ぷらや季節ごとの野菜を使った天ぷら盛り合わせ。天つゆのほか岩塩もご用意しております。</p>
+      <div class="menu-carousel">
+      <div class="menu-carousel-inner">
+        <button class="menu-carousel-btn prev">&#8592;</button>
+        <button class="menu-carousel-btn next">&#8594;</button>
+        <div class="menu-carousel-track">
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/ippinmono/tempura-mori.png','天婦羅盛り合わせ')">
+            <img src="images/ippinmono/tempura-mori.png" alt="天婦羅盛り合わせ">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">天婦羅盛り合わせ</div>
+              <div class="menu-carousel-desc">えび天ぷらや季節ごとの野菜を使った天ぷら盛り合わせ。天つゆのほか岩塩もご用意しております。</div>
+              <div class="menu-carousel-price">1,650円（税込）</div>
+            </div>
+          </div>
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/ippinmono/kaisen-chawanmushi.png','海鮮茶碗蒸し')">
+            <img src="images/ippinmono/kaisen-chawanmushi.png" alt="海鮮茶碗蒸し">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">海鮮茶碗蒸し</div>
+              <div class="menu-carousel-price">980円（税込）</div>
+            </div>
+          </div>
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/ippinmono/tachi-konbu.png','たちの昆布焼き')">
+            <img src="images/ippinmono/tachi-konbu.png" alt="たちの昆布焼き">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">たちの昆布焼き</div>
+              <div class="menu-carousel-price">1,320円（税込）</div>
+            </div>
+          </div>
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/ippinmono/kaisen-salad.png','海鮮サラダ')">
+            <img src="images/ippinmono/kaisen-salad.png" alt="海鮮サラダ">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">海鮮サラダ</div>
+              <div class="menu-carousel-price">1,200円（税込）</div>
+            </div>
+          </div>
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/ippinmono/tofu-salad.png','豆腐サラダ')">
+            <img src="images/ippinmono/tofu-salad.png" alt="豆腐サラダ">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">豆腐サラダ</div>
+              <div class="menu-carousel-price">990円（税込）</div>
+            </div>
+          </div>
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/ippinmono/jikasei-okara.png','自家製しおから')">
+            <img src="images/ippinmono/jikasei-okara.png" alt="自家製しおから">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">自家製しおから</div>
+              <div class="menu-carousel-price">660円（税込）</div>
+            </div>
+          </div>
+
+        </div>
       </div>
+      <div class="menu-carousel-dots"></div>
+    </div>
+
       <div class="menu-split-right">
         <div class="menu-category-label">揚げ物</div>
         <div class="menu-row"><span class="menu-row-name">海老天婦羅（エビ4本）</span><span class="menu-row-price">2,200円</span></div>
@@ -240,11 +400,25 @@
 
     <!-- 上段：写真 + ビール・日本酒・地酒・焼酎 -->
     <div class="menu-split">
-      <div>
-        <img src="images/drink/drink-main.png" alt="お飲み物" class="menu-split-img"
-            onclick="openImgModal('images/drink/drink-main.png','お飲み物')">
-        <p class="menu-split-caption">全国各地から集めた地酒など、豊富なドリンクをご用意しております。</p>
+      <div class="menu-carousel">
+      <div class="menu-carousel-inner">
+        <button class="menu-carousel-btn prev">&#8592;</button>
+        <button class="menu-carousel-btn next">&#8594;</button>
+        <div class="menu-carousel-track">
+
+          <div class="menu-carousel-slide" onclick="openImgModal('images/drink/drink-main.png','お飲み物')">
+            <img src="images/drink/drink-main.png" alt="お飲み物">
+            <div class="menu-carousel-caption">
+              <div class="menu-carousel-name">豊富なドリンク</div>
+              <div class="menu-carousel-desc">全国各地から集めた地酒など、豊富なドリンクをご用意しております。</div>
+            </div>
+          </div>
+
+        </div>
       </div>
+      <div class="menu-carousel-dots"></div>
+    </div>
+
 
       <div class="menu-split-right">
         <div class="menu-category-label">ビール</div>
