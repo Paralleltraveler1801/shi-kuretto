@@ -40,6 +40,7 @@
       <button class="menu-tab active" onclick="switchMenuTab('nigiri')">握り寿司</button>
       <button class="menu-tab" onclick="switchMenuTab('moriawase')">盛り合わせ・丼</button>
       <button class="menu-tab" onclick="switchMenuTab('sashimi')">お刺身</button>
+      <button class="menu-tab" onclick="switchMenuTab('banquet')">宴会料理</button>
       <button class="menu-tab" onclick="switchMenuTab('ippin')">逸品料理</button>
       <button class="menu-tab" onclick="switchMenuTab('drink')">お飲み物</button>
     </div>
@@ -276,6 +277,60 @@
   </section>
 
 
+    <!-- 宴会料理 -->
+    <section id="tab-banquet" class="menu-section" style="display:none;">
+    <h2 class="section-heading">宴会料理</h2>
+
+    <div class="menu-split">
+      <div class="menu-carousel">
+        <div class="menu-carousel-inner">
+          <button class="menu-carousel-btn prev">&#8592;</button>
+          <button class="menu-carousel-btn next">&#8594;</button>
+          <div class="menu-carousel-track">
+
+            <div class="menu-carousel-slide"
+                onclick="openImgModal('images/banquet/banquet-6000.jpg','宴会料理 6,000円コース')">
+              <img src="images/banquet/banquet-6000.jpg" alt="宴会料理">
+              <div class="menu-carousel-caption">
+                <div class="menu-carousel-name">宴会コース</div>
+                <div class="menu-carousel-desc">旬の素材をふんだんに使い、彩り鮮やかに仕上げた全7品。握り・お刺身・焼き物・天ぷらなど季節の美味を贅沢に集めました。</div>
+                <div class="menu-carousel-price">6,000円〜（税込）</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="menu-carousel-dots"></div>
+      </div>
+
+      <div class="menu-split-right">
+        <div class="menu-category-label">コースメニュー</div>
+        <div class="menu-row">
+          <span class="menu-row-name">
+            6,000円コース
+            <span class="menu-row-sub">お通し・お刺身・酢の物・焼き物・天婦羅・茶碗蒸し・寿司</span>
+          </span>
+          <span class="menu-row-price">6,000円</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-row-name">7,000円コース</span>
+          <span class="menu-row-price">7,000円</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-row-name">8,000円コース</span>
+          <span class="menu-row-price">8,000円</span>
+        </div>
+
+        <p style="font-size:0.82rem; color:#c8a882; margin-top:1.2rem; line-height:1.8;">
+          ※コース料理は季節により、内容が若干変更になる場合がございます。
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
 
     <!-- 逸品料理 -->
     <section id="tab-ippin" class="menu-section" style="display:none;">
@@ -412,7 +467,6 @@
         <div class="menu-carousel-desc">全国各地から集めた地酒など、豊富なドリンクをご用意しております。</div>
       </div>
     </div>
-    </div>
 
 
       <div class="menu-split-right">
@@ -477,7 +531,7 @@
         <div class="menu-row"><span class="menu-row-name">サイダー</span><span class="menu-row-price">380円</span></div>
         <div class="menu-row"><span class="menu-row-name">ジンジャーエール</span><span class="menu-row-price">380円</span></div>
       </div>
-
+    </div>
     </div>
   </section>
 

@@ -1,15 +1,27 @@
 function switchMenuTab(tab) {
-  // タブボタン切り替え
   document.querySelectorAll('.menu-tab').forEach(btn => btn.classList.remove('active'));
   event.currentTarget.classList.add('active');
 
-  // セクション切り替え
-  const sections = ['nigiri', 'moriawase', 'sashimi', 'ippin', 'drink'];
+  const sections = ['nigiri', 'moriawase', 'sashimi', 'banquet', 'ippin', 'drink'];
   sections.forEach(id => {
     const el = document.getElementById('tab-' + id);
     if (el) el.style.display = id === tab ? 'block' : 'none';
   });
+
+  // ★ カルーセルがある場合のみリセット
+  const activeSection = document.getElementById('tab-' + tab);
+  if (activeSection) {
+    const carousel = activeSection.querySelector('.menu-carousel');
+    if (!carousel) return; // カルーセルがないタブ（お飲み物など）はスキップ
+    const track = activeSection.querySelector('.menu-carousel-track');
+    if (track) {
+      track.style.transition = 'none';
+      track.style.transform = 'translateX(-100%)';
+      track.offsetHeight;
+    }
+  }
 }
+
 
 // 画像モーダル
 let savedScrollY = 0;
