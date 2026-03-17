@@ -286,13 +286,16 @@ section {
 }
 
 .shop-table th {
-    width: 8em;
+    width: 3em;
     padding: 1rem 0.5rem 1rem 0;
     color: #c8a882;
     font-weight: 600;
     white-space: nowrap;
     vertical-align: top;
+    text-align: justify;
+    text-align-last: justify;
 }
+
 
 .shop-table td {
     padding: 1rem 0;
