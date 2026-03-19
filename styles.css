@@ -722,14 +722,34 @@ footer {
 
     .about-content,
     .interior-grid,
-    .shop-detail,
     .footer-content,
     .contact-grid {
         grid-template-columns: 1fr;
     }
 
+    .shop-detail {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
     .shop-detail-figure {
         position: static;
+    }
+
+    .shop-detail-image {
+        height: 260px;
+    }
+
+    .shop-table td {
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+
+    .shop-table th {
+        width: auto;
+        text-align: left;
+        text-align-last: left;
+        padding-right: 1rem;
     }
 
     section {
