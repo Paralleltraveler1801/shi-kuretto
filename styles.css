@@ -64,19 +64,22 @@ nav {
 }
 
 .reserve-btn {
-    display: table;
+    display: inline-block;
     margin: 40px auto 0;
     text-align: center;
     font-size: 0.85rem;
-    color: #b5956a;
+    color: white;
     text-decoration: none;
     letter-spacing: 0.05em;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+    padding: 0.6rem 2rem;
+    background-color: #b5956a;
+    box-shadow: 0 0 0 1px #b5956a;
+    border-radius: 2px;
 }
 
-.reserve-btn:hover {
-    border-bottom-color: #b5956a;
+.reserve-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 1px #b5956a, 0 1px 4px rgba(181, 149, 106, 0.2);
 }
 
 /* ヒーローセクション */
