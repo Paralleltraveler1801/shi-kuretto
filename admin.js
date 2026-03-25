@@ -336,55 +336,55 @@ async function loadReservations() {
             `<option value="${p}" ${r["ご利用プラン"]===p?"selected":""}>${p}</option>`).join("");
 
         document.getElementById("edit-fields").innerHTML = `
-            <label style="display:block;margin-bottom:12px;color:#ddd;">お名前<br>
-            <input id="e-name" type="text" value="${r["お名前"]||""}" style="${s}"></label>
-            <label style="display:block;margin-bottom:12px;color:#ddd;">電話番号<br>
-            <input id="e-tel" type="tel" value="${r["電話番号"]||""}" style="${s}"></label>
-            <label style="display:block;margin-bottom:12px;color:#ddd;">来店日<br>
-            <input id="e-date" type="date" value="${parseJapaneseDate(r["来店日時"])}" style="${s}"></label>
-            <label style="display:block;margin-bottom:12px;color:#ddd;">来店時刻<br>
-                <select id="e-time" style="${s}">
-                <option value="">時刻を選択</option>
-                <option value="17時00分" ${r["来店時刻"] === "17時00分" ? "selected" : ""}>17時00分</option>
-                <option value="17時15分" ${r["来店時刻"] === "17時15分" ? "selected" : ""}>17時15分</option>
-                <option value="17時30分" ${r["来店時刻"] === "17時30分" ? "selected" : ""}>17時30分</option>
-                <option value="17時45分" ${r["来店時刻"] === "17時45分" ? "selected" : ""}>17時45分</option>
-                <option value="18時00分" ${r["来店時刻"] === "18時00分" ? "selected" : ""}>18時00分</option>
-                <option value="18時15分" ${r["来店時刻"] === "18時15分" ? "selected" : ""}>18時15分</option>
-                <option value="18時30分" ${r["来店時刻"] === "18時30分" ? "selected" : ""}>18時30分</option>
-                <option value="18時45分" ${r["来店時刻"] === "18時45分" ? "selected" : ""}>18時45分</option>
-                <option value="19時00分" ${r["来店時刻"] === "19時00分" ? "selected" : ""}>19時00分</option>
-                <option value="19時15分" ${r["来店時刻"] === "19時15分" ? "selected" : ""}>19時15分</option>
-                <option value="19時30分" ${r["来店時刻"] === "19時30分" ? "selected" : ""}>19時30分</option>
-                <option value="19時45分" ${r["来店時刻"] === "19時45分" ? "selected" : ""}>19時45分</option>
-                <option value="20時00分" ${r["来店時刻"] === "20時00分" ? "selected" : ""}>20時00分</option>
-                </select>
-                </label>
-            <label style="display:block;margin-bottom:12px;color:#ddd;">来店人数<br>
-            <input id="e-count" type="text" value="${r["来店人数"]||""}" style="${s}"></label>
-            <label style="display:block;margin-bottom:12px;color:#ddd;">ご利用プラン<br>
-            <select id="e-plan" style="${s}">${plansHTML}</select></label>
-            <label style="display:block;margin-bottom:12px;color:#ddd;">アレルギー<br>
-            <select id="e-allergy" style="${s}">
-                <option value="なし" ${r["食品アレルギーの確認"]!=="あり"?"selected":""}>なし</option>
-                <option value="あり" ${r["食品アレルギーの確認"]==="あり"?"selected":""}>あり</option>
-            </select></label>
-            <div id="e-allergy-items-wrap" style="${r["食品アレルギーの確認"]!=="あり"?"display:none;":""}margin-bottom:12px;">
-            <p style="color:#ddd;margin-bottom:8px;">アレルギー品目</p>
-            ${checkboxesHTML}
-            <labe style="display:flex; align-items:center; gap:10px; color:#ddd; cursor:pointer; flex-wrap:wrap;">
-                <input type="checkbox" id="allergy-other-check" class="allergy-check" value="__other__"
-                ${otherItem?"checked":""} style="width:18px;height:18px;accent-color:#c8a882;flex-shrink:0;">
-                その他：
-                <input type="text" id="allergy-other-text" value="${otherItem}" placeholder="自由入力"
-                style="flex:1; min-width:100px; padding:6px 8px; background:#2a2a2a; color:#fff; border:1px solid #555; border-radius:4px;">
-            </label>
-            </div>
-            <label style="display:block;margin-bottom:12px;color:#ddd;">編集メモ（任意）<br>
-            <textarea id="editMemo" placeholder="例：人数を3名→5名に変更" maxlength="100" 
-            style="width:100%; padding:10px 8px; margin-top:4px; background:#2a2a2a; color:#fff; border:1px solid #555; border-radius:6px; font-size:1rem; box-sizing:border-box; height:60px;"></textarea>
-            </label>
-        `;
+    <label style="display:block;margin-bottom:12px;color:#ddd;">お名前<br>
+    <input id="e-name" type="text" value="${r["お名前"]||""}" style="${s}"></label>
+    <label style="display:block;margin-bottom:12px;color:#ddd;">電話番号<br>
+    <input id="e-tel" type="tel" value="${r["電話番号"]||""}" style="${s}"></label>
+    <label style="display:block;margin-bottom:12px;color:#ddd;">来店日<br>
+    <input id="e-date" type="date" value="${parseJapaneseDate(r["来店日時"])}" style="${s}"></label>
+    <label style="display:block;margin-bottom:12px;color:#ddd;">来店時刻<br>
+        <select id="e-time" style="${s}">
+        <option value="">時刻を選択</option>
+        <option value="17時00分" ${r["来店時刻"]==="17時00分"?"selected":""}>17時00分</option>
+        <option value="17時15分" ${r["来店時刻"]==="17時15分"?"selected":""}>17時15分</option>
+        <option value="17時30分" ${r["来店時刻"]==="17時30分"?"selected":""}>17時30分</option>
+        <option value="17時45分" ${r["来店時刻"]==="17時45分"?"selected":""}>17時45分</option>
+        <option value="18時00分" ${r["来店時刻"]==="18時00分"?"selected":""}>18時00分</option>
+        <option value="18時15分" ${r["来店時刻"]==="18時15分"?"selected":""}>18時15分</option>
+        <option value="18時30分" ${r["来店時刻"]==="18時30分"?"selected":""}>18時30分</option>
+        <option value="18時45分" ${r["来店時刻"]==="18時45分"?"selected":""}>18時45分</option>
+        <option value="19時00分" ${r["来店時刻"]==="19時00分"?"selected":""}>19時00分</option>
+        <option value="19時15分" ${r["来店時刻"]==="19時15分"?"selected":""}>19時15分</option>
+        <option value="19時30分" ${r["来店時刻"]==="19時30分"?"selected":""}>19時30分</option>
+        <option value="19時45分" ${r["来店時刻"]==="19時45分"?"selected":""}>19時45分</option>
+        <option value="20時00分" ${r["来店時刻"]==="20時00分"?"selected":""}>20時00分</option>
+        </select>
+    </label>
+    <label style="display:block;margin-bottom:12px;color:#ddd;">来店人数<br>
+    <input id="e-count" type="text" value="${r["来店人数"]||""}" style="${s}"></label>
+    <label style="display:block;margin-bottom:12px;color:#ddd;">ご利用プラン<br>
+    <select id="e-plan" style="${s}">${plansHTML}</select></label>
+    <label style="display:block;margin-bottom:12px;color:#ddd;">アレルギー<br>
+    <select id="e-allergy" style="${s}">
+        <option value="なし" ${r["食品アレルギーの確認"]!=="あり"?"selected":""}>なし</option>
+        <option value="あり" ${r["食品アレルギーの確認"]==="あり"?"selected":""}>あり</option>
+    </select></label>
+    <div id="e-allergy-items-wrap" style="${r["食品アレルギーの確認"]!=="あり"?"display:none;":""}margin-bottom:12px;">
+    <p style="color:#ddd;margin-bottom:8px;">アレルギー品目</p>
+    ${checkboxesHTML}
+    <label style="display:flex;align-items:center;gap:10px;color:#ddd;cursor:pointer;flex-wrap:wrap;">
+        <input type="checkbox" id="allergy-other-check" class="allergy-check" value="__other__"
+        ${otherItem?"checked":""} style="width:18px;height:18px;accent-color:#c8a882;flex-shrink:0;">
+        その他：
+        <input type="text" id="allergy-other-text" value="${otherItem}" placeholder="自由入力"
+        style="flex:1;min-width:100px;padding:6px 8px;background:#2a2a2a;color:#fff;border:1px solid #555;border-radius:4px;">
+    </label>
+    </div>
+    <label style="display:block;margin-bottom:12px;color:#ddd;">編集メモ（任意）<br>
+    <textarea id="editMemo" placeholder="例：人数を3名→5名に変更" maxlength="100"
+    style="width:100%;padding:10px 8px;margin-top:4px;background:#2a2a2a;color:#fff;border:1px solid #555;border-radius:6px;font-size:1rem;box-sizing:border-box;height:60px;"></textarea>
+    </label>
+`;
 
         document.getElementById("e-allergy").addEventListener("change", function() {
             document.getElementById("e-allergy-items-wrap").style.display = this.value==="あり"?"block":"none";
