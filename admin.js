@@ -342,7 +342,15 @@ async function loadReservations() {
             <label style="display:block;margin-bottom:12px;color:#ddd;">来店日<br>
             <input id="e-date" type="date" value="${parseJapaneseDate(r["来店日時"])}" style="${s}"></label>
             <label style="display:block;margin-bottom:12px;color:#ddd;">来店時刻<br>
-            <input id="e-time" type="time" value="${parseTime(r["来店時刻"])}" style="${s}"></label>
+            ${(() => {
+            const timeOptions = ['17:00','17:15','17:30','17:45','18:00','18:15','18:30','18:45','19:00','19:15','19:30','19:45','20:00','20:15','20:30'];
+            const currentTime = parseTime(r["来店時刻"]);
+            return `<select id="e-time" style="${s}">
+                <option value="">時刻を選択</option>
+                ${timeOptions.map(t => `<option value="${t}" ${currentTime===t?"selected":""}>${t.replace(':','時')}分</option>`).join('')}
+            </select>`;
+            })()}
+            </label>
             <label style="display:block;margin-bottom:12px;color:#ddd;">来店人数<br>
             <input id="e-count" type="text" value="${r["来店人数"]||""}" style="${s}"></label>
             <label style="display:block;margin-bottom:12px;color:#ddd;">ご利用プラン<br>
