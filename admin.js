@@ -313,8 +313,10 @@ async function loadReservations() {
         }
 
         let savedScrollY = 0;
+        let originalReservation = null
         function openEditModal(r) {
         editingTimestamp = r["タイムスタンプ"];
+        originalReservation = r;
 
         const s = "width:100%; padding:10px 8px; margin-top:4px; background:#2a2a2a; color:#fff; border:1px solid #555; border-radius:6px; font-size:1rem; box-sizing:border-box;";
 
