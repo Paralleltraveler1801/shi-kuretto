@@ -420,6 +420,12 @@ async function loadReservations() {
         }
 
         async function saveEdit() {
+            const memo = document.getElementById("editMemo").value.trim();
+  if (!memo) {
+    alert("編集メモを入力してください。");
+    document.getElementById("editMemo").focus();
+    return;
+  }
         const dateVal = document.getElementById("e-date").value;
         const d = new Date(dateVal + "T00:00:00+09:00");
         const formattedDate = `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
