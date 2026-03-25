@@ -347,10 +347,13 @@ async function loadReservations() {
     '18時00分','18時15分','18時30分','18時45分',
     '19時00分','19時15分','19時30分','19時45分',
     '20時00分'];
-            const currentTime = parseTime(r["来店時刻"]);
+            const currentTime = parseTime(r["来店時刻"]);  
             return `<select id="e-time" style="${s}">
                 <option value="">時刻を選択</option>
-                ${timeOptions.map(t => `<option value="${t}" ${currentTime===t?"selected":""}>${t}</option>`).join('')}
+                ${timeOptions.map(t => {
+                const value = t.replace(/[時分]/g, m => m==='時'?'':':').replace(/(\d{2}):(\d{2})/, '$1:$2');
+                return `<option value="${value}" ${currentTime===value?"selected":""}>${t}</option>`;
+                }).join('')}
             </select>`;
             })()}
             </label>
