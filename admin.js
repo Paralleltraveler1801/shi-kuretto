@@ -379,11 +379,11 @@ async function loadReservations() {
                 <input type="text" id="allergy-other-text" value="${otherItem}" placeholder="自由入力"
                 style="flex:1; min-width:100px; padding:6px 8px; background:#2a2a2a; color:#fff; border:1px solid #555; border-radius:4px;">
             </label>
+            </div>
             <label style="display:block;margin-bottom:12px;color:#ddd;">編集メモ（任意）<br>
             <textarea id="editMemo" placeholder="例：人数を3名→5名に変更" maxlength="100" 
             style="width:100%; padding:10px 8px; margin-top:4px; background:#2a2a2a; color:#fff; border:1px solid #555; border-radius:6px; font-size:1rem; box-sizing:border-box; height:60px;"></textarea>
             </label>
-            </div>
         `;
 
         document.getElementById("e-allergy").addEventListener("change", function() {
